@@ -20,15 +20,18 @@ let isCross = true;
 const Box1 = () => {
 
     console.log("box 1 is clicked");
-
+    
     if( count<size*size && isActive && matrix[0][0]===0 ) {
 
-        matrix[0][0] = 1;
+        
         count++;
 
-        let parent = document.getElementById('box1');
+        const row = 0;
+        const col = 0;
 
-        setOX(parent);     
+        const parent = document.getElementById('box1');
+
+        setOX(parent, row, col);     
         
         if( hasWinningCondition() ) {
             isActive = false;
@@ -49,12 +52,14 @@ const Box2 = () => {
 
     if( count<size*size && isActive && matrix[0][1]===0 ) {
 
-        matrix[0][1] = 1;
         count++;
 
-        let parent = document.getElementById('box2');
+        const row = 0;
+        const col = 1;
+
+        const parent = document.getElementById('box2');
         
-        setOX(parent);  
+        setOX(parent, row, col);  
         
         if( hasWinningCondition() ) {
             isActive = false;
@@ -75,12 +80,14 @@ const Box3 = () => {
     
     if( count<size*size && isActive && matrix[0][2]===0 ) {
         
-        matrix[0][2] = 1;
         count++;
+
+        const row = 0;
+        const col = 2;
         
-        let parent = document.getElementById('box3');
+        const parent = document.getElementById('box3');
         
-        setOX(parent);  
+        setOX(parent, row, col);  
         
         if( hasWinningCondition() ) {
             isActive = false;
@@ -101,12 +108,14 @@ const Box4 = () => {
 
     if( count<size*size && isActive && matrix[1][0]===0 ) {
 
-        matrix[1][0] = 1;
         count++;
 
-        let parent = document.getElementById('box4');
+        const row = 1;
+        const col = 0;
 
-        setOX(parent);
+        const parent = document.getElementById('box4');
+
+        setOX(parent, row, col);
 
         if( hasWinningCondition() ) {
             isActive = false;
@@ -127,12 +136,14 @@ const Box5 = () => {
 
     if( count<size*size && isActive && matrix[1][1]===0 ) {
 
-        matrix[1][1] = 1;
         count++;
 
-        let parent = document.getElementById('box5');
+        const row = 1;
+        const col = 1;
 
-        setOX(parent);
+        const parent = document.getElementById('box5');
+
+        setOX(parent, row, col);
 
         if( hasWinningCondition() ) {
             isActive = false;
@@ -153,12 +164,14 @@ const Box6 = () => {
 
     if( count<size*size && isActive && matrix[1][2]===0 ) {
 
-        matrix[1][2] = 1;
         count++;
 
-        let parent = document.getElementById('box6');
+        const row = 1;
+        const col = 2;
 
-        setOX(parent);
+        const parent = document.getElementById('box6');
+
+        setOX(parent, row, col);
 
         if( hasWinningCondition() ) {
             isActive = false;
@@ -179,12 +192,14 @@ const Box7 = () => {
 
     if( count<size*size && isActive && matrix[2][0]===0 ) {
 
-        matrix[2][0] = 1;
         count++;
 
-        let parent = document.getElementById('box7');
+        const row = 2;
+        const col = 0;
 
-        setOX(parent);
+        const parent = document.getElementById('box7');
+
+        setOX(parent, row, col);
 
         if( hasWinningCondition() ) {
             isActive = false;
@@ -205,12 +220,14 @@ const Box8 = () => {
 
     if( count<size*size && isActive && matrix[2][1]===0 ) {
 
-        matrix[2][1] = 1;
         count++;
 
-        let parent = document.getElementById('box8');
+        const row = 2;
+        const col = 1;
 
-        setOX(parent);
+        const parent = document.getElementById('box8');
+
+        setOX(parent, row, col);
 
         if( hasWinningCondition() ) {
             isActive = false;
@@ -231,12 +248,14 @@ const Box9 = () => {
 
     if( count<size*size && isActive && matrix[2][2]===0 ) {
 
-        matrix[2][2] = 1;
         count++;
 
-        let parent = document.getElementById('box9');
+        const row = 2;
+        const col = 2;
 
-        setOX(parent);
+        const parent = document.getElementById('box9');
+
+        setOX(parent, row, col);
 
         if( hasWinningCondition() ) {
             isActive = false;
@@ -252,8 +271,8 @@ const Box9 = () => {
     
 }
 
-const setOX = (id) => {
-
+const setOX = (id, row, col) => {
+    
     const parent = id;
 
     const img = document.createElement('img');
@@ -261,42 +280,78 @@ const setOX = (id) => {
     img.width = 50;
 
     if( isCross ) {
+        matrix[row][col] = 1;
         img.src = './assets/X.png';
         isCross = false;
-        
+        document.getElementById('player-tern').innerHTML = `O's turn`
     }
     else {            
+        matrix[row][col] = 2;
         img.src = './assets/O.png';
         isCross = true;
+        document.getElementById('player-tern').innerHTML = `X's turn`
     }
 
     parent.style.backgroundColor = 'white';
     parent.appendChild(img);    
-
+    
 }
 
 
 const hasWinningCondition = () => {
     
+    const winner_tv = document.getElementById('winner-name');
+
+    // for X means 1
     for( let i=0; i<size; i++) {
     
         if( matrix[i][0] === 1 && matrix[i][1]===1 && matrix[i][2]===1 ) {
+            winner_tv.innerHTML = `X has own the game`;
             return true;
         }
-
+        
         if( matrix[0][i]===1 && matrix[1][i]===1 && matrix[2][i]===1 ) {
+            winner_tv.innerHTML = `X has own the game`;
             return true;
         }
+        
+    }
     
-    }
-
     if( matrix[0][0] === 1 && matrix[1][1]===1 && matrix[2][2]===1 ) {
+        winner_tv.innerHTML = `X has own the game`;
+        return true;
+    }
+    
+    if( matrix[2][0] === 1 && matrix[1][1]===1 && matrix[0][2]===1 ) {
+        winner_tv.innerHTML = `X has own the game`;
+        return true;
+    }
+    
+    // for O means 2
+    for( let i=0; i<size; i++) {
+        
+        if( matrix[i][0] === 2 && matrix[i][1]===2 && matrix[i][2]===2 ) {
+            winner_tv.innerHTML = `O has own the game`;
+            return true;
+        }
+        
+        if( matrix[0][i]===2 && matrix[1][i]===2 && matrix[2][i]===2 ) {
+            winner_tv.innerHTML = `O has own the game`;
+            return true;
+        }
+        
+    }
+    
+    if( matrix[0][0] === 2 && matrix[1][1]===2 && matrix[2][2]===2 ) {
+        winner_tv.innerHTML = `O has own the game`;
+        return true;
+    }
+    
+    if( matrix[2][0] === 2 && matrix[1][1]===2 && matrix[0][2]===2 ) {
+        winner_tv.innerHTML = `O has own the game`;
         return true;
     }
 
-    if( matrix[2][0] === 1 && matrix[1][1]===1 && matrix[0][2]===1 ) {
-        return true;
-    }
 
     return false;
 

@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #8d99ae;
     /* align-items: center; */
     /* background: ; */
     /* background-color: green; */
@@ -18,7 +19,7 @@ body {
 
 a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 a:hover {
@@ -28,8 +29,9 @@ a:hover {
 nav {
     display: flex;
     justify-content: space-around;
-    background-color: aquamarine;
-    padding: 10px;
+    background-color: #2b2d42;
+    color: white;
+    padding: 20px 0px;
 }
 
 nav ul {
@@ -90,6 +92,16 @@ nav ul {
 
 main {
     /* background-color: white; */
+    color: #0d03de;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main p {
+    padding: 20px 0px;
+    font-size: 20px;
 }
 
 .board {
@@ -101,4 +113,21 @@ main {
     justify-content: center;
     align-items: center;
 
+}
+
+footer {
+    background-color: #2b2d42;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0px;
+}
+
+footer p{
+    color: white;
+}
+
+footer ul {    
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
 }
