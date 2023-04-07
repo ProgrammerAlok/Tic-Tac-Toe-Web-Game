@@ -278,6 +278,7 @@ const setOX = (id, row, col) => {
     const img = document.createElement('img');
     img.height = 50;
     img.width = 50;
+    img.id = `img${count}`;
 
     if( isCross ) {
         matrix[row][col] = 1;
@@ -300,7 +301,11 @@ const setOX = (id, row, col) => {
 
 const hasWinningCondition = () => {
     
-    const winner_tv = document.getElementById('winner-name');
+    const winner_tv = document.getElementById('player-tern');
+
+    if( count==size*size ) {
+        winner_tv.innerHTML = `Game is Draw`
+    }
 
     // for X means 1
     for( let i=0; i<size; i++) {
@@ -374,5 +379,19 @@ const hasWinningCondition = () => {
     */
 
 
+}
+
+
+const formatBoard = () => {
+    /*
+    for(let i=0; i<size; i++) {
+        for( let j=0; j<size; j++) {
+            matrix[i][j]=0;
+        }
+    }
+    for(let i=0; i<size*size; i++) {
+        document.getElementById(`img${i+1}`).parentNode.removeChild(document.getElementById(`img${i+1}`));
+    }
+    */
 }
 
