@@ -1,3 +1,4 @@
+
 let matrix = [
     [0, 0, 0],
     [0, 0, 0],
@@ -48,6 +49,7 @@ const Box1 = () => {
 }
 
 const Box2 = () => {
+
     console.log("box 2 is clicked");
 
     if( count<size*size && isActive && matrix[0][1]===0 ) {
@@ -76,6 +78,7 @@ const Box2 = () => {
 }
 
 const Box3 = () => {
+
     console.log("box 3 is clicked");
     
     if( count<size*size && isActive && matrix[0][2]===0 ) {
@@ -104,6 +107,7 @@ const Box3 = () => {
 }
 
 const Box4 = () => {
+
     console.log("box 4 is clicked");
 
     if( count<size*size && isActive && matrix[1][0]===0 ) {
@@ -188,6 +192,7 @@ const Box6 = () => {
 }
 
 const Box7 = () => {
+
     console.log("box 7 is clicked");
 
     if( count<size*size && isActive && matrix[2][0]===0 ) {
@@ -294,10 +299,9 @@ const setOX = (id, row, col) => {
     }
 
     parent.style.backgroundColor = 'white';
-    parent.appendChild(img);    
+    parent.appendChild(img);        
     
 }
-
 
 const hasWinningCondition = () => {
     
@@ -360,27 +364,7 @@ const hasWinningCondition = () => {
 
     return false;
 
-    /*
-    for( let i=0; i<size; i++ ) {
-        for( let j=0; j<size; j++ ) {
-            if( matrix[i][j]===0 ) {
-                return false;
-            }
-        }
-    }
-
-    for( let i=0; i<size; i++ ) {
-        for( let j=0; j<size; j++ ) {
-            if( matrix[i][j]===0 ) {
-                return false;
-            }
-        }
-    }
-    */
-
-
 }
-
 
 const formatBoard = () => {
 
@@ -391,9 +375,10 @@ const formatBoard = () => {
     
     for(let i=0; i<size; i++) {
         for( let j=0; j<size; j++) {
-            matrix[i][j]=0;
+            matrix[i][j] = 0;
         }
     }
+
     for(let i=0; i<size*size; i++) {
         document.getElementById(`box${i+1}`).innerHTML = ``;
         document.getElementById(`box${i+1}`).style.backgroundColor = `#3f6280`;
