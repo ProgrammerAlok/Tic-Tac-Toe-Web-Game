@@ -48,8 +48,10 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 
+/*
 #box1 {
     background-color: red;
 }
@@ -88,7 +90,7 @@ nav ul {
 
 #box9 {
     background-color: red;
-}
+}*/
 
 main {
     /* background-color: white; */
