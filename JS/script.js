@@ -383,15 +383,21 @@ const hasWinningCondition = () => {
 
 
 const formatBoard = () => {
-    /*
+
+    isActive = true;
+    count = 0;
+    isCross = true;
+    document.getElementById('player-tern').innerHTML = `X's turn`;
+    
     for(let i=0; i<size; i++) {
         for( let j=0; j<size; j++) {
             matrix[i][j]=0;
         }
     }
     for(let i=0; i<size*size; i++) {
-        document.getElementById(`img${i+1}`).parentNode.removeChild(document.getElementById(`img${i+1}`));
+        document.getElementById(`box${i+1}`).innerHTML = ``;
+        document.getElementById(`box${i+1}`).style.backgroundColor = `#3f6280`;
     }
-    */
+    
 }
 
