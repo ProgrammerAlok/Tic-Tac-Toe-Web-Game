@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* background: ; */
+    /* background-color: green; */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: aquamarine;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#box1 {
+    background-color: red;
+}
+
+#box2 {
+    background-color: green;
+}
+
+#box3 {
+    background-color: yellow;
+}
+
+#box3 {
+    background-color: blue;
+}
+
+#box4 {
+    background-color: orange;
+}
+
+#box5 {
+    background-color: greenyellow;
+}
+
+#box6 {
+    background-color: yellowgreen;
+}
+
+#box7 {
+    background-color: blue;
+}
+
+#box8 {
+    background-color: yellow;
+}
+
+#box9 {
+    background-color: red;
+}
+
+main {
+    /* background-color: white; */
+}
+
+.board {
+    display: grid;
+    /* background-color: black; */
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+}
