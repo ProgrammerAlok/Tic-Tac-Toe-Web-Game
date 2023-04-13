@@ -67,6 +67,12 @@ nav {
     }
 }
 
+@media screen and (max-height: 550px) {
+    body {
+        display: none;
+    }
+}
+
 nav ul {
     display: flex;
     justify-content: center;

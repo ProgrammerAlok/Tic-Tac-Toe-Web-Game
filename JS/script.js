@@ -5,11 +5,13 @@ let matrix = [
     [0, 0, 0]
 ];
 
-let size = 3;
+const size = 3;
 
 let isActive = true;
 
 let count = 0;
+
+const max = 8;
 
 /*
  isCross true :: X ( X represent 1 )
@@ -17,6 +19,16 @@ let count = 0;
  isCross false :: O ( O represent 2 )
 */
 let isCross = true; 
+
+const box1 = document.getElementById("box1");
+const box2 = document.getElementById("box2");
+const box3 = document.getElementById("box3");
+const box4 = document.getElementById("box4");
+const box5 = document.getElementById("box5");
+const box6 = document.getElementById("box6");
+const box7 = document.getElementById("box7");
+const box8 = document.getElementById("box8");
+const box9 = document.getElementById("box9");
 
 const Box1 = () => {
 
@@ -26,10 +38,10 @@ const Box1 = () => {
 
         
         count++;
-
+        
         const row = 0;
         const col = 0;
-
+        
         const parent = document.getElementById('box1');
 
         setOX(parent, row, col);     
@@ -43,10 +55,12 @@ const Box1 = () => {
                 console.log('O has own the Game')
             }
         }
-
+        
+        
     }
-
+    
 }
+
 
 const Box2 = () => {
 
@@ -276,6 +290,16 @@ const Box9 = () => {
     
 }
 
+box1.addEventListener("click", Box1);
+box2.addEventListener("click", Box2);
+box3.addEventListener("click", Box3);
+box4.addEventListener("click", Box4);
+box5.addEventListener("click", Box5);
+box6.addEventListener("click", Box6);
+box7.addEventListener("click", Box7);
+box8.addEventListener("click", Box8);
+box9.addEventListener("click", Box9);
+
 const setOX = (id, row, col) => {
     
     const parent = id;
@@ -289,13 +313,13 @@ const setOX = (id, row, col) => {
         matrix[row][col] = 1;
         img.src = './assets/X.png';
         isCross = false;
-        document.getElementById('player-tern').innerHTML = `O's turn`
+        document.getElementById('player-tern').innerText = `O's turn`
     }
     else {            
         matrix[row][col] = 2;
         img.src = './assets/O.png';
         isCross = true;
-        document.getElementById('player-tern').innerHTML = `X's turn`
+        document.getElementById('player-tern').innerText = `X's turn`
     }
 
     parent.style.backgroundColor = 'white';
@@ -371,7 +395,7 @@ const formatBoard = () => {
     isActive = true;
     count = 0;
     isCross = true;
-    document.getElementById('player-tern').innerHTML = `X's turn`;
+    document.getElementById('player-tern').innerText = `X's turn`;
     
     for(let i=0; i<size; i++) {
         for( let j=0; j<size; j++) {
@@ -385,4 +409,46 @@ const formatBoard = () => {
     }
     
 }
+/*
+const computer = () => {
+    const flag = count;
+    do
+    {
+        let boxx = getRandomInt(9);
 
+        switch (boxx) {
+            case 1:
+                Box1();
+                break;
+            case 2:
+                Box2();            
+                break;
+            case 3:
+                Box3();           
+                break;
+            case 4:            
+                Box4();           
+                break;
+            case 5:            
+                Box5();           
+                break;
+            case 6:            
+                Box6();           
+                break;
+            case 7:            
+                Box7();           
+                break;
+            case 8:            
+                Box8();           
+                break;
+            case 9:            
+                Box9();           
+                break;
+        }
+    }while( flag != count )
+}
+
+const getRandomInt = (max) => {
+    return 1 + Math.floor(Math.random() * max);
+}
+*/
